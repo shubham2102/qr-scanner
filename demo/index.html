@@ -34,8 +34,8 @@
 <b>Device has camera: </b>
 <span id="cam-has-camera"></span>
 <br>
-<code id="cameras">
-</code>
+<pre id="cameras">
+</pre>
 <div>
     <b>Preferred camera:</b>
     <select id="cam-list">
@@ -115,7 +115,7 @@
         // Note that we can also start the scanner after listCameras, we just have it this way around in the demo to
         // start the scanner earlier.
         QrScanner.listCameras(true).then(cameras => {
-            document.querySelector('code#cameras').innerHtml = cameras;
+            document.querySelector('pre#cameras').textContent = JSON.stringify(cameras, undefined, 2);
             cameras.forEach(camera => {
                 const option = document.createElement('option');
                 option.value = camera.id;
